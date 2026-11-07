@@ -1,4 +1,4 @@
-# {{NOMBRE1}} & {{NOMBRE2}} — Invitación de casamiento
+# Gordo & Cande — Invitación de casamiento
 
 Web de invitación estática: un `index.html` (CSS y JS inline), las fotos en `fotos/` y `apps-script.gs`, que es la copia versionada del backend del RSVP que corre en Google Apps Script.
 
@@ -9,7 +9,7 @@ grep -n '{{' index.html README.md CLAUDE.md apps-script.gs
 ```
 
 - **Producción:** https://{{DOMINIO}} (proyecto Vercel `{{VERCEL_PROJECT}}`, conectado a GitHub `{{GITHUB_REPO}}`)
-- **Fecha:** {{DD.MM.AAAA}} · {{HORA_CEREMONIA}} {{LUGAR_CEREMONIA}} · {{HORA_FIESTA}} {{LUGAR_FIESTA}}
+- **Fecha:** 08.02.2027 · 16:30 Parroquia La Merced · 18:30 Darwin Tortugas, Salón Laguna
 
 ## Placeholders
 
