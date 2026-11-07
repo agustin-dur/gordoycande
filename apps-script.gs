@@ -5,8 +5,9 @@
  * en Google Apps Script, atado a la planilla de respuestas.
  *
  * Cómo instalarlo (una sola vez):
- *  1. Crear una planilla en Google Sheets, con esta fila de encabezados en la hoja "Respuestas":
+ *  1. En la planilla del casamiento, crear una pestaña "CONFIRMADOS" con estos encabezados en la fila 1:
  *     Fecha | Nombre | Asistencia | Restricciones | Mensaje
+ *     (si la pestaña no existe, el script la crea sola con esos encabezados en la primera confirmación)
  *  2. En la planilla: Extensiones → Apps Script. Borrar lo que haya y pegar este archivo. Guardar.
  *  3. Implementar → Nueva implementación → tipo "Aplicación web".
  *       - Ejecutar como: Yo
@@ -18,6 +19,10 @@
  * editar (lápiz) → Versión: Nueva. Si no, la URL /exec sigue sirviendo el código viejo.
  */
 
+// Pestaña donde caen las confirmaciones. Nunca se escribe en otra.
+var PESTANA = 'CONFIRMADOS';
+var ENCABEZADOS = ['Fecha', 'Nombre', 'Asistencia', 'Restricciones', 'Mensaje'];
+
 // Si querés además un mail por cada confirmación, poné acá la dirección. Vacío = sin mails.
 var AVISAR_A = '';
 
@@ -27,7 +32,12 @@ function doPost(e) {
 
   try {
     var libro = SpreadsheetApp.getActive();
-    var hoja = libro.getSheetByName('Respuestas') || libro.getSheets()[0];
+    var hoja = libro.getSheetByName(PESTANA);
+    if (!hoja) { // la planilla tiene otras pestañas: nunca caer en la primera
+      hoja = libro.insertSheet(PESTANA);
+      hoja.appendRow(ENCABEZADOS);
+      hoja.setFrozenRows(1);
+    }
     var d = JSON.parse(e.postData.contents);
 
     hoja.appendRow([
