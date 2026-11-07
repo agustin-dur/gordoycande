@@ -126,7 +126,7 @@ function tabla(hoja) {
 
 /** "  Sebastián  Madero (Nano)" → "sebastian madero" */
 function normalizar(s) {
-  return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+  return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
