@@ -1,5 +1,5 @@
 /**
- * Backend del RSVP del sitio de invitación (https://{{DOMINIO}})
+ * Backend del RSVP del sitio de invitación (https://gordoycande.vercel.app)
  *
  * Este archivo NO se usa en el sitio: es la copia versionada del código que vive
  * en Google Apps Script, atado a la planilla de respuestas.

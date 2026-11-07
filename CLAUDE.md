@@ -13,7 +13,7 @@ Static wedding invitation site, started as a template: every personal detail is 
 ## Develop and deploy
 
 - Preview locally with any static server, e.g. `python3 -m http.server 4173` (a `static-site` config exists in `.claude/launch.json`).
-- Production: https://{{DOMINIO}} — Vercel project `{{VERCEL_PROJECT}}`, connected to GitHub `{{GITHUB_REPO}}`. Pushing to `main` deploys automatically (no build configured). Not set up yet.
+- Production: https://gordoycande.vercel.app — Vercel project `gordoycande`, connected to GitHub `agustin-dur/gordoycande`. Pushing to `main` deploys automatically (no build configured).
 
 ## Structure of index.html
 

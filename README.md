@@ -8,7 +8,7 @@ Este repo arranca como **plantilla**: todos los datos personales están marcados
 grep -n '{{' index.html README.md CLAUDE.md apps-script.gs
 ```
 
-- **Producción:** https://{{DOMINIO}} (proyecto Vercel `{{VERCEL_PROJECT}}`, conectado a GitHub `{{GITHUB_REPO}}`)
+- **Producción:** https://gordoycande.vercel.app (proyecto Vercel `gordoycande`, conectado a GitHub `agustin-dur/gordoycande`)
 - **Fecha:** 08.02.2027 · 16:30 Parroquia La Merced · 18:30 Darwin Tortugas, Salón Laguna
 
 ## Placeholders
