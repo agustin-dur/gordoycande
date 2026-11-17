@@ -31,7 +31,9 @@
 
 // Pestaña donde caen las confirmaciones.
 var PESTANA = 'CONFIRMADOS';
-var ENCABEZADOS = ['Fecha', 'Nombre', 'Asistencia', 'Restricciones', 'Mensaje', 'En la lista'];
+// Cada dato se escribe en la columna con ese título (se pueden reordenar a mano).
+// Si falta alguna, se agrega al final de la fila 1.
+var ENCABEZADOS = ['Fecha', 'Nombre', 'Asistencia', 'Restricciones', 'Canción', 'Mensaje', 'En la lista'];
 
 // Listas de invitados donde se marca a cada persona. En la fila 1 tienen que tener
 // las columnas "Nombre" y "Apellido"; la columna "Confirmación" se agrega sola.
@@ -52,14 +54,15 @@ function doPost(e) {
     var libro = SpreadsheetApp.getActive();
     var enLista = marcarEnListas(libro, d.nombre || '', d.asistencia || '');
 
-    hojaConfirmados(libro).appendRow([
-      new Date(),
-      d.nombre || '',
-      d.asistencia || '',
-      d.dieta || '',
-      d.mensaje || '',
-      enLista
-    ]);
+    agregarFila(hojaConfirmados(libro), {
+      'Fecha': new Date(),
+      'Nombre': d.nombre || '',
+      'Asistencia': d.asistencia || '',
+      'Restricciones': d.dieta || '',
+      'Canción': d.cancion || '',
+      'Mensaje': d.mensaje || '',
+      'En la lista': enLista
+    });
 
     if (AVISAR_A) {
       MailApp.sendEmail(
@@ -68,6 +71,7 @@ function doPost(e) {
         'Nombre: ' + (d.nombre || '') + '\n' +
         'Asistencia: ' + (d.asistencia || '') + '\n' +
         'Restricciones: ' + (d.dieta || '') + '\n' +
+        'Canción: ' + (d.cancion || '') + '\n' +
         'Mensaje: ' + (d.mensaje || '') + '\n' +
         'En la lista: ' + enLista
       );
@@ -96,10 +100,36 @@ function hojaConfirmados(libro) {
     hoja = libro.insertSheet(PESTANA);
     hoja.appendRow(ENCABEZADOS);
     hoja.setFrozenRows(1);
-  } else if (hoja.getRange(1, ENCABEZADOS.length).getValue() === '') {
-    hoja.getRange(1, ENCABEZADOS.length).setValue(ENCABEZADOS[ENCABEZADOS.length - 1]);
   }
+  columnas(hoja); // agrega los títulos que falten
   return hoja;
+}
+
+/** { 'fecha': 1, 'nombre': 2, ... } según los títulos de la fila 1; agrega al final los que falten. */
+function columnas(hoja) {
+  var ancho = Math.max(hoja.getLastColumn(), 1);
+  var titulos = hoja.getRange(1, 1, 1, ancho).getValues()[0];
+  var cols = {};
+  titulos.forEach(function (t, i) { if (t !== '' && !cols[normalizar(t)]) cols[normalizar(t)] = i + 1; });
+  var ultima = 0;
+  titulos.forEach(function (t, i) { if (t !== '') ultima = i + 1; });
+  ENCABEZADOS.forEach(function (t) {
+    if (!cols[normalizar(t)]) {
+      ultima++;
+      hoja.getRange(1, ultima).setValue(t);
+      cols[normalizar(t)] = ultima;
+    }
+  });
+  return cols;
+}
+
+/** Agrega una fila poniendo cada dato debajo de su título. */
+function agregarFila(hoja, datos) {
+  var cols = columnas(hoja);
+  var fila = [];
+  Object.keys(datos).forEach(function (t) { fila[cols[normalizar(t)] - 1] = datos[t]; });
+  for (var i = 0; i < fila.length; i++) if (fila[i] === undefined) fila[i] = '';
+  hoja.getRange(hoja.getLastRow() + 1, 1, 1, fila.length).setValues([fila]);
 }
 
 /**
@@ -136,7 +166,7 @@ function palabras(s) {
 }
 
 function viene(asistencia) {
-  return /^(si|yes)/.test(normalizar(asistencia)); // "Siiii" / "Yesss"
+  return /^(si|yes)/.test(normalizar(asistencia)); // "Sí" / "Yes"
 }
 
 /**
@@ -197,8 +227,10 @@ function remarcarTodo() {
   var libro = SpreadsheetApp.getActive();
   var hoja = hojaConfirmados(libro);
   if (hoja.getLastRow() < 2) return;
-  var filas = hoja.getRange(2, 1, hoja.getLastRow() - 1, ENCABEZADOS.length).getValues();
+  var cols = columnas(hoja);
+  var filas = hoja.getRange(2, 1, hoja.getLastRow() - 1, hoja.getLastColumn()).getValues();
   filas.forEach(function (fila, i) {
-    hoja.getRange(i + 2, ENCABEZADOS.length).setValue(marcarEnListas(libro, fila[1], fila[2]));
+    var resultado = marcarEnListas(libro, fila[cols['nombre'] - 1], fila[cols['asistencia'] - 1]);
+    hoja.getRange(i + 2, cols['en la lista']).setValue(resultado);
   });
 }

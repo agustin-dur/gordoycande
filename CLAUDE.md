@@ -8,7 +8,7 @@ Static wedding invitation site, started as a template: every personal detail is 
 
 ### Placeholders
 
-`grep -n '{{' index.html README.md CLAUDE.md apps-script.gs` lists everything still to fill in. The README has the full table (what each placeholder is and where it appears). Until they are filled: the countdown shows dashes (the JS guards against the unparsable date), the Spotify embed shows an error, and the RSVP fallback posts to a bogus formsubmit address. Don't invent real-looking values — leave placeholders as placeholders unless the user gives the data.
+`grep -n '{{' index.html README.md CLAUDE.md apps-script.gs` lists everything still to fill in. The README has the full table (what each placeholder is and where it appears). Until they are filled: the countdown shows dashes (the JS guards against the unparsable date), the RSVP fallback posts to a bogus formsubmit address. Don't invent real-looking values — leave placeholders as placeholders unless the user gives the data.
 
 ## Develop and deploy
 
@@ -17,7 +17,7 @@ Static wedding invitation site, started as a template: every personal detail is 
 
 ## Structure of index.html
 
-One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`) → music (`#musica`, Spotify embed + collaborator invite link) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette); fonts are Cormorant Garamond (body) and Space Mono (labels/numbers, via the `.mono` pattern).
+One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette); fonts are Cormorant Garamond (body) and Space Mono (labels/numbers, via the `.mono` pattern).
 
 ### Photos
 
@@ -37,12 +37,11 @@ A small script in `<head>` sets `LANG` and hides `main` (`html.pre-i18n`) so Eng
 
 One form per person — guests with a +1 are asked to have them submit their own form. On submit, the script picks a backend:
 
-- `SHEET_URL` (top of the inline script) — if non-empty, POSTs JSON `{nombre, asistencia, dieta, mensaje}` to a Google Apps Script (code and install steps in `apps-script.gs`). Currently empty.
+- `SHEET_URL` (top of the inline script) — if non-empty, POSTs JSON `{nombre, asistencia, dieta, cancion, mensaje}` to a Google Apps Script (code and install steps in `apps-script.gs`). Currently empty.
 - Fallback: formsubmit.co, emailing `{{EMAIL}}`.
 
 ## Known pending work (from README)
 
 - Fill every placeholder and replace the filler photos, `og-image.jpg` and the favicons
 - Create the Google Sheet + Apps Script and set `SHEET_URL`
-- Create the collaborative Spotify playlist
 - Create the Vercel project and connect it to the repo

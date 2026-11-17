@@ -25,8 +25,6 @@ grep -n '{{' index.html README.md CLAUDE.md apps-script.gs
 | `{{MAPA_CEREMONIA}}`, `{{MAPA_FIESTA}}` | links "Ver en el mapa" (URL completa) | `https://maps.google.com/?q=…` |
 | `{{INICIO_AAAAMMDDTHHMMSS}}`, `{{FIN_AAAAMMDDTHHMMSS}}` | link "Agregar al calendario" (hay dos: español e inglés) | `20261024T160000`, `20261025T020000` |
 | `{{ALIAS_PESOS}}`, `{{ALIAS_DOLARES}}`, `{{TITULAR_CUENTA}}` | sección Regalos | |
-| `{{SPOTIFY_PLAYLIST_ID}}` | iframe de la playlist (el id que sigue a `/playlist/` en la URL) | |
-| `{{SPOTIFY_LINK_COLABORAR}}` | botón "Agregá canciones" (link de "Invitar colaboradores") | |
 | `{{EMAIL}}` | fallback del RSVP vía formsubmit.co | |
 | `{{DOMINIO}}` | `og:url`, `og:image` y el "Más info" del calendario | `xxx.vercel.app` |
 
@@ -56,16 +54,13 @@ Reemplazar cada archivo de `fotos/` manteniendo el nombre, o cambiar el `src` en
 También son de relleno `og-image.jpg` (1200×630, preview al compartir el link), `favicon.png` (512×512) y `apple-touch-icon.png` (180×180).
 
 ## Secciones
-Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (dos alias, pesos y dólares) · Fotos · Música (playlist de Spotify colaborativa)
+Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (dos alias, pesos y dólares) · Fotos
 
 ## RSVP
 - Un form por persona (los +1 completan el suyo)
 - Cada confirmación se escribe como una fila en una planilla de Google, vía el Apps Script publicado como web app. La URL va en `SHEET_URL`, arriba del script de `index.html` (hoy vacía)
 - El código del Apps Script está en `apps-script.gs`, con los pasos de instalación y deploy en su comentario de cabecera. Ojo: al editarlo hay que crear una **nueva versión** de la implementación, si no la URL `/exec` sigue ejecutando el código viejo
 - El envío por mail vía formsubmit.co queda como fallback: sólo corre si `SHEET_URL` está vacía. Requiere completar `{{EMAIL}}` y confirmar la dirección la primera vez que formsubmit manda un mail
-
-## Música
-La sección `#musica` embebe la playlist de Spotify y el botón "Agregá canciones" abre el link de invitación a colaborar. Para que la gente pueda sumar temas, la playlist tiene que estar en modo colaborativo en Spotify (playlist → menú → Invitar colaboradores).
 
 ## Deploy
 Vercel, sitio estático sin build. Importar el repo de GitHub como proyecto nuevo en Vercel; después, push a `main` deploya automáticamente. Preview local: `python3 -m http.server 4173`.
@@ -75,5 +70,4 @@ Vercel, sitio estático sin build. Importar el repo de GitHub como proyecto nuev
 - [ ] Reemplazar las fotos de relleno, `og-image.jpg`, `favicon.png` y `apple-touch-icon.png`
 - [ ] Describir los `alt` de las fotos (español e inglés)
 - [ ] Crear la planilla + Apps Script y pegar la URL en `SHEET_URL`
-- [ ] Crear la playlist en Spotify en modo colaborativo
 - [ ] Crear el proyecto en Vercel y conectarlo al repo
