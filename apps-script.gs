@@ -43,7 +43,7 @@ var COLOR_CONFIRMADO = '#fff2cc'; // amarillo claro
 var COLOR_RECHAZADO = '#f4cccc';  // rojo claro
 
 // Mail que recibe un aviso por cada confirmación (varios: separados por coma). Vacío = sin mails.
-var AVISAR_A = 'agustindurlach@gmail.com';
+var AVISAR_A = 'agustindurlach@gmail.com,candeposse@hotmail.com';
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
