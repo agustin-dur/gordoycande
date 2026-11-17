@@ -42,8 +42,8 @@ var COLUMNA_ESTADO = 'Confirmación';
 var COLOR_CONFIRMADO = '#fff2cc'; // amarillo claro
 var COLOR_RECHAZADO = '#f4cccc';  // rojo claro
 
-// Si querés además un mail por cada confirmación, poné acá la dirección. Vacío = sin mails.
-var AVISAR_A = '';
+// Mail que recibe un aviso por cada confirmación (varios: separados por coma). Vacío = sin mails.
+var AVISAR_A = 'agustindurlach@gmail.com';
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
