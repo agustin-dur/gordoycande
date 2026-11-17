@@ -16,7 +16,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet"><style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"><style>
   :root{
     --paper:#fffbf8;   /* papel casi blanco, apenas crema */
     --ink:#505b5d;     /* tinta gris azulada de la invitación */
@@ -45,11 +45,11 @@
     background-size:480px 480px,200px 200px;
   }
   main{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:0 24px}
-  .mono{font-family:'Cormorant SC',serif}
+  .mono{font-family:'Space Mono',monospace}
 
   /* ---------- HERO ---------- */
   header{text-align:center;padding:72px 0 48px}
-  .kicker{font-family:'Cormorant SC',serif;font-size:12px;letter-spacing:.42em;color:var(--ink-soft);text-transform:uppercase}
+  .kicker{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.42em;color:var(--ink-soft);text-transform:uppercase}
   h1{
     font-size:clamp(44px,9vw,84px);
     font-weight:500;letter-spacing:.14em;
@@ -98,22 +98,22 @@
   /* al pasar la vertical se oculta la cara y queda el papel blanco: el dorso de la foto */
   .postcard-paper img{backface-visibility:hidden;-webkit-backface-visibility:hidden}
   .bigdate{
-    font-family:'Cormorant SC',serif;font-size:clamp(28px,6vw,44px);
+    font-family:'Space Mono',monospace;font-size:clamp(28px,6vw,44px);
     letter-spacing:.12em;margin-top:44px;font-weight:700;
   }
-  .subline{font-family:'Cormorant SC',serif;font-size:13px;letter-spacing:.35em;color:var(--ink-soft);text-transform:uppercase;margin-top:10px}
+  .subline{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.35em;color:var(--ink-soft);text-transform:uppercase;margin-top:10px}
   .subline .lugar{white-space:nowrap}
   @media(max-width:600px){.subline .sep{display:none}.subline .lugar{display:block;margin-top:4px}}
 
   /* ---------- COUNTDOWN ---------- */
   .countdown{display:flex;justify-content:center;gap:clamp(14px,4vw,36px);margin:56px 0 8px;flex-wrap:wrap}
   .cd-box{text-align:center;min-width:76px}
-  .cd-num{font-family:'Cormorant SC',serif;font-size:clamp(32px,7vw,52px);font-weight:700;color:var(--sea-deep)}
-  .cd-label{font-family:'Cormorant SC',serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
+  .cd-num{font-family:'Space Mono',monospace;font-size:clamp(32px,7vw,52px);font-weight:700;color:var(--sea-deep)}
+  .cd-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft)}
   .cal-wrap{text-align:center;margin-top:34px}
   .cal-btn{
     display:inline-block;padding:13px 30px;
-    font-family:'Cormorant SC',serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
     background:var(--sea-deep);color:#fff;text-decoration:none;border-radius:999px;transition:background .2s;
   }
   .cal-btn:hover{background:var(--accent)}
@@ -121,7 +121,7 @@
   /* ---------- SECTIONS ---------- */
   section{padding:64px 0}
   .sec-title{
-    text-align:center;font-family:'Cormorant SC',serif;font-size:13px;
+    text-align:center;font-family:'Space Mono',monospace;font-size:13px;
     letter-spacing:.42em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:36px;
   }
   .sec-title::after{content:"";display:block;width:44px;height:1px;background:var(--accent);margin:16px auto 0}
@@ -133,12 +133,12 @@
     background:var(--card);padding:36px 28px;text-align:center;
     border:1px solid rgba(74,67,53,.10);box-shadow:0 6px 18px rgba(74,67,53,.08);
   }
-  .evt .hour{font-family:'Cormorant SC',serif;font-size:30px;font-weight:700;color:var(--sea-deep)}
+  .evt .hour{font-family:'Space Mono',monospace;font-size:30px;font-weight:700;color:var(--sea-deep)}
   .evt h3{font-size:26px;font-weight:600;margin:10px 0 4px}
   .evt p{font-size:18px;color:var(--ink-soft);font-style:italic}
   .evt p.donde{font-size:16px;font-style:normal;margin-top:2px;text-wrap:balance}
   .evt a.map{
-    display:inline-block;margin-top:18px;font-family:'Cormorant SC',serif;font-size:12px;
+    display:inline-block;margin-top:18px;font-family:'Space Mono',monospace;font-size:12px;
     letter-spacing:.18em;text-transform:uppercase;color:var(--sea-deep);
     text-decoration:none;border-bottom:1px solid var(--sea-deep);padding-bottom:2px;
   }
@@ -151,7 +151,7 @@
   }
   @media(max-width:640px){.rsvp-card{padding:32px 22px}}
   .rsvp-intro{text-align:center;font-size:20px;font-style:italic;color:var(--ink-soft);margin-bottom:28px}
-  label{display:block;font-family:'Cormorant SC',serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:20px 0 6px}
+  label{display:block;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin:20px 0 6px}
   /* marca de campo obligatorio; el lector de pantalla ya lo sabe por el atributo required */
   label .req{color:var(--accent);letter-spacing:0;margin-left:.25em;font-size:13px;vertical-align:1px}
   input[type=text],input[type=tel],select,textarea{
@@ -172,7 +172,7 @@
   textarea{resize:vertical;min-height:80px}
   .btn{
     display:block;width:100%;margin-top:30px;padding:16px;
-    font-family:'Cormorant SC',serif;font-size:13px;letter-spacing:.3em;text-transform:uppercase;
+    font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.3em;text-transform:uppercase;
     background:var(--sea-deep);color:#fff;border:none;cursor:pointer;transition:background .2s;
   }
   .btn:hover{background:var(--accent)}
@@ -189,10 +189,10 @@
     background:var(--card);border:1px dashed var(--accent);padding:14px 18px;
   }
   .alias-box .moneda{
-    display:block;font-family:'Cormorant SC',serif;font-size:10px;letter-spacing:.22em;
+    display:block;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.22em;
     text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px;
   }
-  .alias-box code{font-family:'Cormorant SC',serif;font-size:16px;letter-spacing:.06em;color:var(--ink)}
+  .alias-box code{font-family:'Space Mono',monospace;font-size:16px;letter-spacing:.06em;color:var(--ink)}
   .copy{
     flex:none;display:inline-flex;align-items:center;justify-content:center;
     background:none;border:1px solid var(--ink-soft);color:var(--ink-soft);
@@ -241,33 +241,8 @@
   .rsvp-nota strong{font-weight:600}
   .otra-wrap{display:none;text-align:center}
   .otra{margin-top:14px;background:none;border:none;border-bottom:1px solid var(--sea-deep);padding:0 0 2px;cursor:pointer;
-    font-family:'Cormorant SC',serif;font-size:18px;letter-spacing:.08em;color:var(--sea-deep)}
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--sea-deep)}
 
-  /* ---------- ESTILO DE LA INVITACIÓN IMPRESA ----------
-     nombres en caligrafía, títulos en versalitas, números en serif */
-  h1{font-family:'Pinyon Script',cursive;font-weight:400;letter-spacing:0;font-size:clamp(40px,11.5vw,92px);line-height:1.25;margin:8px 0 0;white-space:nowrap}
-  .amp{color:var(--sea-deep);font-family:'Pinyon Script',cursive}
-  .kicker,.subline,.sec-title,.cd-label,.cal-btn,.evt a.map,label,.btn,.alias-box .moneda,.mono{text-transform:none;font-weight:500}
-  .kicker{font-size:26px;letter-spacing:.06em;color:var(--ink)}
-  .bigdate{font-weight:500;letter-spacing:.1em;font-size:clamp(34px,8vw,48px)}
-  .subline{font-size:20px;letter-spacing:.08em}
-  .sec-title{font-size:26px;letter-spacing:.08em;color:var(--ink)}
-  .sec-title::after{width:140px;background:var(--ink);opacity:.55;margin-top:14px}
-  .cd-num,.evt .hour{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--ink)}
-  .cd-label{font-size:18px;letter-spacing:.06em}
-  .cal-btn,.btn{font-size:19px;letter-spacing:.1em}
-  .evt .hour{font-size:36px}
-  .evt h3{font-family:'Cormorant SC',serif;font-weight:500;letter-spacing:.04em}
-  .evt p{font-family:'Cormorant SC',serif;font-style:normal;font-size:20px;color:var(--ink)}
-  .evt p.donde{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink-soft)}
-  .evt a.map{font-size:18px;letter-spacing:.08em}
-  label{font-size:18px;letter-spacing:.06em;color:var(--ink)}
-  .alias-box .moneda{font-size:16px;letter-spacing:.08em}
-  .alias-box code{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;letter-spacing:.02em}
-  .alias-box{border-style:solid;border-color:rgba(80,91,93,.25)}
-  .evt,.rsvp-card{box-shadow:none;border-color:rgba(80,91,93,.14)}
-  footer .mono{font-size:22px;letter-spacing:.06em;text-transform:none}
-  footer .amp{font-family:'Pinyon Script',cursive;font-size:28px;vertical-align:-3px;color:var(--sea-deep)}
 
   /* el inglés lo escribe el JS: tapo el texto hasta que corre para que no se vea el español */
   html.pre-i18n main{opacity:0}

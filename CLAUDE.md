@@ -17,7 +17,7 @@ Static wedding invitation site, started as a template: every personal detail is 
 
 ## Structure of index.html
 
-One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette, taken from the printed invitation: near-white textured paper, slate-blue ink, watercolor blues). Fonts: Cormorant Garamond (body, numbers), Cormorant SC (small-caps labels/titles, incl. the `.mono` class) and Pinyon Script (the couple's names). The block "ESTILO DE LA INVITACIÓN IMPRESA" at the end of the CSS holds those overrides.
+One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette, taken from the printed invitation: near-white textured paper, slate-blue ink, watercolor blues); fonts are Cormorant Garamond (body) and Space Mono (labels/numbers, via the `.mono` pattern).
 
 ### Photos
 
