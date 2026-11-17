@@ -17,11 +17,11 @@ Static wedding invitation site, started as a template with `{{PLACEHOLDER}}`s an
 
 ## Structure of index.html
 
-One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette, taken from the printed invitation: near-white textured paper, slate-blue ink, watercolor blues); fonts are Cormorant Garamond (body) and Space Mono (labels/numbers, via the `.mono` pattern).
+One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`, all photos visible, no flipping) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette, taken from the printed invitation: near-white textured paper, slate-blue ink, watercolor blues); fonts are Cormorant Garamond (body) and Space Mono (labels/numbers, via the `.mono` pattern).
 
 ### Photos
 
-`fotos/foto-01.jpg` to `foto-23.jpg`. 01/02 are the hero postcard (back/front, landscape 1600×960, the front `img` carries `width`/`height`); 03–23 (960×960 squares) fill the 8 flip tiles of the grid in visible order: front, back, and for tiles 2, 4, 5, 7 and 8 a third photo via `data-ciclo` / `data-ciclo-en`. Alt texts describe each photo: Spanish in the markup (and in `data-ciclo`), English in `I18N_EN` (keys `alt.fotoNN`, only for photos rendered as `<img>`) and in `data-ciclo-en`. The README has the slot table.
+`fotos/foto-01.jpg` to `foto-24.jpg`. 01/02 are the hero postcard (back/front, landscape 1600×960, the front `img` carries `width`/`height`; tapping the postcard lifts it to show the back). 03–24 are the photo grid, all visible at once with no click (the couple asked for no tap-to-reveal): 2 columns on phones, 4 from 641px. Images with `class="grande"` (03 and 16, 1080×1080) span 2×2; the rest are 720×720 squares. Keep a multiple of 4 small photos between big ones and after the last one, or the grid gets holes. Alt texts describe each photo: Spanish in the markup, English in `I18N_EN` (keys `alt.fotoNN`). The README has the slot table.
 
 ### English version (`?lang=en`)
 
