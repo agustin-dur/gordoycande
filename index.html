@@ -219,7 +219,7 @@
       margin-inline:calc((100% - min(1080px,calc(100vw - 48px)))/2);
     }
   }
-  .fotos-grid img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+  .fotos-grid img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:var(--sand)} /* fondo mientras carga */
   .fotos-grid .grande{grid-column:span 2;grid-row:span 2;height:100%}
 
   footer{text-align:center;padding:60px 0 80px;font-style:italic;font-size:19px;color:var(--ink-soft)}
@@ -274,7 +274,7 @@
         <img src="fotos/foto-01.jpg" alt="Agustín y Cande en un mirador, con el lago y las montañas de fondo" data-i18n-alt="alt.foto01" decoding="async" fetchpriority="low">
       </div>
       <div class="postcard-paper">
-        <img src="fotos/foto-02.jpg" alt="Agustín y Cande en la orilla del lago; Cande muestra el anillo" data-i18n-alt="alt.foto02" width="1600" height="960">
+        <img src="fotos/foto-02.jpg" alt="Agustín y Cande en la orilla del lago; Cande muestra el anillo" data-i18n-alt="alt.foto02" width="1200" height="720" fetchpriority="high">
       </div>
     </div>
 
@@ -380,28 +380,28 @@
   <section id="fotos">
     <h2 class="sec-title reveal" data-i18n="fotos.titulo">Nosotros</h2>
     <div class="fotos-grid reveal reveal-d1">
-      <img class="grande" src="fotos/foto-03.jpg" alt="En la playa, al atardecer" data-i18n-alt="alt.foto03" loading="lazy">
-      <img src="fotos/foto-04.jpg" alt="En la orilla del mar" data-i18n-alt="alt.foto04" loading="lazy">
-      <img src="fotos/foto-05.jpg" alt="En la playa, con un cachorro negro" data-i18n-alt="alt.foto05" loading="lazy">
-      <img src="fotos/foto-06.jpg" alt="En un balcón frente al mar, con el cachorro en brazos" data-i18n-alt="alt.foto06" loading="lazy">
-      <img src="fotos/foto-07.jpg" alt="Sentados en el deck de una casa de madera, con el perro" data-i18n-alt="alt.foto07" loading="lazy">
-      <img src="fotos/foto-08.jpg" alt="Frente a la Torre Eiffel, en blanco y negro" data-i18n-alt="alt.foto08" loading="lazy">
-      <img src="fotos/foto-09.jpg" alt="París de noche, desde lo alto" data-i18n-alt="alt.foto09" loading="lazy">
-      <img src="fotos/foto-10.jpg" alt="Frente a la Sagrada Familia" data-i18n-alt="alt.foto10" loading="lazy">
-      <img src="fotos/foto-11.jpg" alt="Frente a la torre de televisión de Berlín" data-i18n-alt="alt.foto11" loading="lazy">
-      <img src="fotos/foto-12.jpg" alt="En el aeropuerto, listos para viajar" data-i18n-alt="alt.foto12" loading="lazy">
-      <img src="fotos/foto-13.jpg" alt="Bajo las palmeras" data-i18n-alt="alt.foto13" loading="lazy">
-      <img src="fotos/foto-14.jpg" alt="Esquiando, con casco y antiparras" data-i18n-alt="alt.foto14" loading="lazy">
-      <img src="fotos/foto-15.jpg" alt="En lo alto de la pista de esquí, con el lago de fondo" data-i18n-alt="alt.foto15" loading="lazy">
-      <img class="grande" src="fotos/foto-16.jpg" alt="Agustín y Cande en un mirador, con el lago y las montañas de fondo" data-i18n-alt="alt.foto16" loading="lazy">
-      <img src="fotos/foto-17.jpg" alt="Acampando junto a un lago" data-i18n-alt="alt.foto17" loading="lazy">
-      <img src="fotos/foto-18.jpg" alt="Junto a un lago entre montañas" data-i18n-alt="alt.foto18" loading="lazy">
-      <img src="fotos/foto-19.jpg" alt="Una noche en el jardín, con una copa de vino" data-i18n-alt="alt.foto19" loading="lazy">
-      <img src="fotos/foto-20.jpg" alt="Abrazados frente a una pared iluminada" data-i18n-alt="alt.foto20" loading="lazy">
-      <img src="fotos/foto-21.jpg" alt="En un jardín, vestidos para una fiesta" data-i18n-alt="alt.foto21" loading="lazy">
-      <img src="fotos/foto-22.jpg" alt="Frente a una casa con techo de tejas" data-i18n-alt="alt.foto22" loading="lazy">
-      <img src="fotos/foto-23.jpg" alt="En la costa, con el mar de fondo" data-i18n-alt="alt.foto23" loading="lazy">
-      <img src="fotos/foto-24.jpg" alt="Sus manos con el anillo, frente al lago" data-i18n-alt="alt.foto24" loading="lazy">
+      <img class="grande" src="fotos/foto-03.jpg" alt="En la playa, al atardecer" data-i18n-alt="alt.foto03" loading="lazy" decoding="async">
+      <img src="fotos/foto-04.jpg" alt="En la orilla del mar" data-i18n-alt="alt.foto04" loading="lazy" decoding="async">
+      <img src="fotos/foto-05.jpg" alt="En la playa, con un cachorro negro" data-i18n-alt="alt.foto05" loading="lazy" decoding="async">
+      <img src="fotos/foto-06.jpg" alt="En un balcón frente al mar, con el cachorro en brazos" data-i18n-alt="alt.foto06" loading="lazy" decoding="async">
+      <img src="fotos/foto-07.jpg" alt="Sentados en el deck de una casa de madera, con el perro" data-i18n-alt="alt.foto07" loading="lazy" decoding="async">
+      <img src="fotos/foto-08.jpg" alt="Frente a la Torre Eiffel, en blanco y negro" data-i18n-alt="alt.foto08" loading="lazy" decoding="async">
+      <img src="fotos/foto-09.jpg" alt="París de noche, desde lo alto" data-i18n-alt="alt.foto09" loading="lazy" decoding="async">
+      <img src="fotos/foto-10.jpg" alt="Frente a la Sagrada Familia" data-i18n-alt="alt.foto10" loading="lazy" decoding="async">
+      <img src="fotos/foto-11.jpg" alt="Frente a la torre de televisión de Berlín" data-i18n-alt="alt.foto11" loading="lazy" decoding="async">
+      <img src="fotos/foto-12.jpg" alt="En el aeropuerto, listos para viajar" data-i18n-alt="alt.foto12" loading="lazy" decoding="async">
+      <img src="fotos/foto-13.jpg" alt="Bajo las palmeras" data-i18n-alt="alt.foto13" loading="lazy" decoding="async">
+      <img src="fotos/foto-14.jpg" alt="Esquiando, con casco y antiparras" data-i18n-alt="alt.foto14" loading="lazy" decoding="async">
+      <img src="fotos/foto-15.jpg" alt="En lo alto de la pista de esquí, con el lago de fondo" data-i18n-alt="alt.foto15" loading="lazy" decoding="async">
+      <img class="grande" src="fotos/foto-16.jpg" alt="Agustín y Cande en un mirador, con el lago y las montañas de fondo" data-i18n-alt="alt.foto16" loading="lazy" decoding="async">
+      <img src="fotos/foto-17.jpg" alt="Acampando junto a un lago" data-i18n-alt="alt.foto17" loading="lazy" decoding="async">
+      <img src="fotos/foto-18.jpg" alt="Junto a un lago entre montañas" data-i18n-alt="alt.foto18" loading="lazy" decoding="async">
+      <img src="fotos/foto-19.jpg" alt="Una noche en el jardín, con una copa de vino" data-i18n-alt="alt.foto19" loading="lazy" decoding="async">
+      <img src="fotos/foto-20.jpg" alt="Abrazados frente a una pared iluminada" data-i18n-alt="alt.foto20" loading="lazy" decoding="async">
+      <img src="fotos/foto-21.jpg" alt="En un jardín, vestidos para una fiesta" data-i18n-alt="alt.foto21" loading="lazy" decoding="async">
+      <img src="fotos/foto-22.jpg" alt="Frente a una casa con techo de tejas" data-i18n-alt="alt.foto22" loading="lazy" decoding="async">
+      <img src="fotos/foto-23.jpg" alt="En la costa, con el mar de fondo" data-i18n-alt="alt.foto23" loading="lazy" decoding="async">
+      <img src="fotos/foto-24.jpg" alt="Sus manos con el anillo, frente al lago" data-i18n-alt="alt.foto24" loading="lazy" decoding="async">
     </div>
   </section>
 

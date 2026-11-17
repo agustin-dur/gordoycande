@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static wedding invitation site, started as a template with `{{PLACEHOLDER}}`s and filler photos; the couple's details and photos are now filled in (only the favicons are still filler). The site is a single `index.html` (inline CSS and JS) plus static assets: photos in `fotos/` (the hero postcard uses `fotos/foto-02.jpg`, its back `fotos/foto-01.jpg`) and the favicon PNGs. No build step, no dependencies, no framework, no tests. All content is in Spanish (Argentine voseo) — keep that tone in any copy changes. Guests will open this mostly on phones — design and verify mobile-first (occasionally desktop).
+Static wedding invitation site, started as a template with `{{PLACEHOLDER}}`s and filler photos; the couple's details, photos and favicons are now filled in. The site is a single `index.html` (inline CSS and JS) plus static assets: photos in `fotos/` (the hero postcard uses `fotos/foto-02.jpg`, its back `fotos/foto-01.jpg`) and the favicon PNGs. No build step, no dependencies, no framework, no tests. All content is in Spanish (Argentine voseo) — keep that tone in any copy changes. Guests will open this mostly on phones — design and verify mobile-first (occasionally desktop).
 
 ### Placeholders
 
@@ -21,7 +21,7 @@ One page, sections in order: hero (postcard photo + date) → countdown → agen
 
 ### Photos
 
-`fotos/foto-01.jpg` to `foto-24.jpg`. 01/02 are the hero postcard (back/front, landscape 1600×960, the front `img` carries `width`/`height`; tapping the postcard lifts it to show the back). 03–24 are the photo grid, all visible at once with no click (the couple asked for no tap-to-reveal): 2 columns on phones, 4 from 641px. Images with `class="grande"` (03 and 16, 1080×1080) span 2×2; the rest are 720×720 squares. Keep a multiple of 4 small photos between big ones and after the last one, or the grid gets holes. Alt texts describe each photo: Spanish in the markup, English in `I18N_EN` (keys `alt.fotoNN`). The README has the slot table.
+`fotos/foto-01.jpg` to `foto-24.jpg`. 01/02 are the hero postcard (back/front, landscape 1200×720, the front `img` carries `width`/`height` and `fetchpriority="high"` since it is the first thing on screen; tapping the postcard lifts it to show the back). 03–24 are the photo grid, all visible at once with no click (the couple asked for no tap-to-reveal): 2 columns on phones, 4 from 641px. Images with `class="grande"` (03 and 16, 1080×1080) span 2×2; the rest are 540×540 squares. Those sizes are deliberate (enough for 2–3x screens, light on mobile data: JPEG q76, progressive, no EXIF); keep them when swapping a photo. Keep a multiple of 4 small photos between big ones and after the last one, or the grid gets holes. Alt texts describe each photo: Spanish in the markup, English in `I18N_EN` (keys `alt.fotoNN`). The README has the slot table.
 
 ### English version (`?lang=en`)
 
@@ -42,5 +42,4 @@ One form per person — guests with a +1 are asked to have them submit their own
 
 ## Known pending work (from README)
 
-- Replace the filler favicons (`favicon.png`, `apple-touch-icon.png`)
 - Create the Google Sheet + Apps Script and set `SHEET_URL`

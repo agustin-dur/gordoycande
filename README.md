@@ -36,13 +36,13 @@ Para cambiar una foto, reemplazar el archivo de `fotos/` manteniendo el nombre. 
 
 | Archivo | Dónde |
 |---|---|
-| `foto-01.jpg` | dorso de la postal del hero (se ve al tocarla), apaisada 1600×960 |
-| `foto-02.jpg` | frente de la postal, apaisada 1600×960 (si cambia la proporción, actualizar `width`/`height` del `img`) |
+| `foto-01.jpg` | dorso de la postal del hero (se ve al tocarla), apaisada 1200×720 |
+| `foto-02.jpg` | frente de la postal, apaisada 1200×720 (si cambia la proporción, actualizar `width`/`height` del `img`) |
 | `foto-03.jpg` … `foto-24.jpg` | grilla "Nosotros", en orden: 22 fotos a la vista, una por recuadro, sin clic |
 
-La grilla tiene 2 columnas en el celu y 4 desde 641px. Las fotos con `class="grande"` (hoy la 03 y la 16, de 1080×1080) ocupan 2×2; las demás son de 720×720. Para que la grilla cierre sin huecos, entre una grande y la siguiente, y después de la última, tiene que haber una cantidad de fotos chicas múltiplo de 4 (hoy: grande, 12 chicas, grande, 8 chicas).
+La grilla tiene 2 columnas en el celu y 4 desde 641px. Las fotos con `class="grande"` (hoy la 03 y la 16, de 1080×1080) ocupan 2×2; las demás son de 540×540. Esos tamaños alcanzan para pantallas de alta densidad y mantienen el sitio liviano (JPEG calidad 76, progresivo, sin metadatos): si se cambia una foto, conviene respetarlos. Para que la grilla cierre sin huecos, entre una grande y la siguiente, y después de la última, tiene que haber una cantidad de fotos chicas múltiplo de 4 (hoy: grande, 12 chicas, grande, 8 chicas).
 
-`og-image.jpg` (1200×630, la vista previa al compartir el link) sale de la foto de portada. Siguen de relleno `favicon.png` (512×512) y `apple-touch-icon.png` (180×180).
+`og-image.jpg` (1200×630, la vista previa al compartir el link) sale de la foto de portada. `favicon.png` (192×192) y `apple-touch-icon.png` (180×180) son el monograma "A&C" en Cormorant Garamond sobre el azul de la paleta.
 
 ## Secciones
 Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (dos alias, pesos y dólares) · Fotos
@@ -59,7 +59,7 @@ Vercel, sitio estático sin build. Importar el repo de GitHub como proyecto nuev
 ## Pendientes
 - [ ] Completar todos los `{{PLACEHOLDER}}` (ver arriba)
 - [x] Reemplazar las fotos de relleno y `og-image.jpg`
-- [ ] Reemplazar `favicon.png` y `apple-touch-icon.png`
+- [x] Reemplazar `favicon.png` y `apple-touch-icon.png`
 - [x] Describir los `alt` de las fotos (español e inglés)
 - [ ] Crear la planilla + Apps Script y pegar la URL en `SHEET_URL`
 - [x] Crear el proyecto en Vercel y conectarlo al repo
