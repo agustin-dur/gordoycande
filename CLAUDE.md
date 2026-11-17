@@ -17,7 +17,7 @@ Static wedding invitation site, started as a template: every personal detail is 
 
 ## Structure of index.html
 
-One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette); fonts are Cormorant Garamond (body) and Space Mono (labels/numbers, via the `.mono` pattern).
+One page, sections in order: hero (postcard photo + date) → countdown → agenda (`#agenda`, ceremony/party cards with Google Maps links) → RSVP (`#rsvp`) → gifts (`#regalos`) → photo grid (`#fotos`) → footer. Design tokens live as CSS variables in `:root` (paper/ink/sea/sand/accent palette, taken from the printed invitation: near-white textured paper, slate-blue ink, watercolor blues). Fonts: Cormorant Garamond (body, numbers), Cormorant SC (small-caps labels/titles, incl. the `.mono` class) and Pinyon Script (the couple's names). The block "ESTILO DE LA INVITACIÓN IMPRESA" at the end of the CSS holds those overrides.
 
 ### Photos
 
@@ -25,7 +25,7 @@ One page, sections in order: hero (postcard photo + date) → countdown → agen
 
 ### English version (`?lang=en`)
 
-The page ships in Spanish. Opening it with `?lang=en` swaps every string to English; anything else (including no param) stays in Spanish. A discreet toggle in the footer links between the two.
+The page ships in Spanish. Opening it with `?lang=en` swaps every string to English; anything else (including no param) stays in Spanish. There is no visible language toggle (removed on request); share the `?lang=en` link directly.
 
 **Dates are localised, not just copied.** Spanish shows day.month.year (`{{DD.MM.AAAA}}`); English shows month.day.year (`{{MM.DD.AAAA}}`). This applies everywhere the date is rendered — the hero `.bigdate`, the footer line, the RSVP thank-you and the `og:description`. Any new date needs the same treatment.
 
@@ -37,7 +37,7 @@ A small script in `<head>` sets `LANG` and hides `main` (`html.pre-i18n`) so Eng
 
 One form per person — guests with a +1 are asked to have them submit their own form. On submit, the script picks a backend:
 
-- `SHEET_URL` (top of the inline script) — if non-empty, POSTs JSON `{nombre, asistencia, dieta, cancion, mensaje}` to a Google Apps Script (code and install steps in `apps-script.gs`). Currently empty.
+- `SHEET_URL` (top of the inline script) — if non-empty, POSTs JSON `{nombre, telefono, asistencia, dieta, cancion, mensaje}` to a Google Apps Script (code and install steps in `apps-script.gs`). Currently empty.
 - Fallback: formsubmit.co, emailing `{{EMAIL}}`.
 
 ## Known pending work (from README)

@@ -33,7 +33,7 @@
 var PESTANA = 'CONFIRMADOS';
 // Cada dato se escribe en la columna con ese título (se pueden reordenar a mano).
 // Si falta alguna, se agrega al final de la fila 1.
-var ENCABEZADOS = ['Fecha', 'Nombre', 'Asistencia', 'Restricciones', 'Canción', 'Mensaje', 'En la lista'];
+var ENCABEZADOS = ['Fecha', 'Nombre', 'Teléfono', 'Asistencia', 'Restricciones', 'Canción', 'Mensaje', 'En la lista'];
 
 // Listas de invitados donde se marca a cada persona. En la fila 1 tienen que tener
 // las columnas "Nombre" y "Apellido"; la columna "Confirmación" se agrega sola.
@@ -57,6 +57,7 @@ function doPost(e) {
     agregarFila(hojaConfirmados(libro), {
       'Fecha': new Date(),
       'Nombre': d.nombre || '',
+      'Teléfono': d.telefono || '',
       'Asistencia': d.asistencia || '',
       'Restricciones': d.dieta || '',
       'Canción': d.cancion || '',
@@ -69,6 +70,7 @@ function doPost(e) {
         AVISAR_A,
         'RSVP: ' + (d.nombre || 'sin nombre') + ' — ' + (d.asistencia || ''),
         'Nombre: ' + (d.nombre || '') + '\n' +
+        'Teléfono: ' + (d.telefono || '') + '\n' +
         'Asistencia: ' + (d.asistencia || '') + '\n' +
         'Restricciones: ' + (d.dieta || '') + '\n' +
         'Canción: ' + (d.cancion || '') + '\n' +
