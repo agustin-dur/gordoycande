@@ -49,7 +49,7 @@ Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (d
 
 ## RSVP
 - Un form por persona (los +1 completan el suyo)
-- Cada confirmación se escribe como una fila en una planilla de Google, vía el Apps Script publicado como web app. La URL va en `SHEET_URL`, arriba del script de `index.html` (hoy vacía)
+- Cada confirmación se escribe como una fila en una planilla de Google, vía el Apps Script publicado como web app. La URL va en `SHEET_URL`, arriba del script de `index.html` (ya cargada)
 - El código del Apps Script está en `apps-script.gs`, con los pasos de instalación y deploy en su comentario de cabecera. Ojo: al editarlo hay que crear una **nueva versión** de la implementación, si no la URL `/exec` sigue ejecutando el código viejo
 - El envío por mail vía formsubmit.co queda como fallback: sólo corre si `SHEET_URL` está vacía. Requiere completar `{{EMAIL}}` y confirmar la dirección la primera vez que formsubmit manda un mail
 
@@ -57,9 +57,9 @@ Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (d
 Vercel, sitio estático sin build. Importar el repo de GitHub como proyecto nuevo en Vercel; después, push a `main` deploya automáticamente. Preview local: `python3 -m http.server 4173`.
 
 ## Pendientes
-- [ ] Completar todos los `{{PLACEHOLDER}}` (ver arriba)
+- [x] Completar todos los `{{PLACEHOLDER}}` (ver arriba)
 - [x] Reemplazar las fotos de relleno y `og-image.jpg`
 - [x] Reemplazar `favicon.png` y `apple-touch-icon.png`
 - [x] Describir los `alt` de las fotos (español e inglés)
-- [ ] Crear la planilla + Apps Script y pegar la URL en `SHEET_URL`
+- [x] Crear la planilla + Apps Script y pegar la URL en `SHEET_URL`
 - [x] Crear el proyecto en Vercel y conectarlo al repo
