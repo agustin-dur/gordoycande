@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static wedding invitation site, started as a template: every personal detail is a `{{PLACEHOLDER}}` and the photos are numbered filler images. The site is a single `index.html` (inline CSS and JS) plus static assets: photos in `fotos/` (the hero postcard uses `fotos/foto-02.jpg`, its back `fotos/foto-01.jpg`) and the favicon PNGs. No build step, no dependencies, no framework, no tests. All content is in Spanish (Argentine voseo) — keep that tone in any copy changes. Guests will open this mostly on phones — design and verify mobile-first (occasionally desktop).
+Static wedding invitation site, started as a template with `{{PLACEHOLDER}}`s and filler photos; the couple's details and photos are now filled in (only the favicons are still filler). The site is a single `index.html` (inline CSS and JS) plus static assets: photos in `fotos/` (the hero postcard uses `fotos/foto-02.jpg`, its back `fotos/foto-01.jpg`) and the favicon PNGs. No build step, no dependencies, no framework, no tests. All content is in Spanish (Argentine voseo) — keep that tone in any copy changes. Guests will open this mostly on phones — design and verify mobile-first (occasionally desktop).
 
 ### Placeholders
 
@@ -21,7 +21,7 @@ One page, sections in order: hero (postcard photo + date) → countdown → agen
 
 ### Photos
 
-`fotos/foto-01.jpg` to `foto-20.jpg`. 01/02 are the hero postcard (back/front, landscape 1600×960, the front `img` carries `width`/`height`); 03–20 fill the 8 flip tiles of the grid in visible order (front, back, and for tiles 3 and 4 a third photo via `data-ciclo` / `data-ciclo-en`). Alt texts are "Foto N" (markup) and "Photo N" (`I18N_EN`, keys `alt.fotoNN`). The README has the slot table.
+`fotos/foto-01.jpg` to `foto-23.jpg`. 01/02 are the hero postcard (back/front, landscape 1600×960, the front `img` carries `width`/`height`); 03–23 (960×960 squares) fill the 8 flip tiles of the grid in visible order: front, back, and for tiles 2, 4, 5, 7 and 8 a third photo via `data-ciclo` / `data-ciclo-en`. Alt texts describe each photo: Spanish in the markup (and in `data-ciclo`), English in `I18N_EN` (keys `alt.fotoNN`, only for photos rendered as `<img>`) and in `data-ciclo-en`. The README has the slot table.
 
 ### English version (`?lang=en`)
 
@@ -42,6 +42,5 @@ One form per person — guests with a +1 are asked to have them submit their own
 
 ## Known pending work (from README)
 
-- Fill every placeholder and replace the filler photos, `og-image.jpg` and the favicons
+- Replace the filler favicons (`favicon.png`, `apple-touch-icon.png`)
 - Create the Google Sheet + Apps Script and set `SHEET_URL`
-- Create the Vercel project and connect it to the repo

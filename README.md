@@ -32,26 +32,26 @@ Los placeholders aparecen en los dos idiomas (español en el HTML, inglés en el
 
 ## Fotos
 
-Reemplazar cada archivo de `fotos/` manteniendo el nombre, o cambiar el `src` en `index.html`. Los `alt` están como "Foto N" / "Photo N" (en `I18N_EN`): conviene describirlas.
+Para cambiar una foto, reemplazar el archivo de `fotos/` manteniendo el nombre. Cada foto tiene su descripción (`alt`) en castellano en el HTML y en inglés en `I18N_EN` (claves `alt.fotoNN`); las terceras fotos de una tarjeta la llevan en `data-ciclo` / `data-ciclo-en`.
 
 | Archivo | Dónde |
 |---|---|
-| `foto-01.jpg` | dorso de la postal del hero (se ve al tocarla) |
+| `foto-01.jpg` | dorso de la postal del hero (se ve al tocarla), apaisada 1600×960 |
 | `foto-02.jpg` | frente de la postal, apaisada 1600×960 (si cambia la proporción, actualizar `width`/`height` del `img`) |
-| `foto-03.jpg` … `foto-20.jpg` | grilla "Nosotros": 8 cuadrados que se dan vuelta al tocarlos |
+| `foto-03.jpg` … `foto-23.jpg` | grilla "Nosotros": 8 cuadrados de 960×960 que se dan vuelta al tocarlos |
 
-| Cuadro | Frente | Dorso | Tercera (`data-ciclo`) |
-|---|---|---|---|
-| 1 | 03 | 04 | |
-| 2 | 05 | 06 | |
-| 3 | 07 | 08 | 09 |
-| 4 | 10 | 11 | 12 |
-| 5 | 13 | 14 | |
-| 6 | 15 | 16 | |
-| 7 | 17 | 18 | |
-| 8 | 19 | 20 | |
+| Cuadro | Frente | Dorso | Tercera (`data-ciclo`) | Tema |
+|---|---|---|---|---|
+| 1 | 03 | 04 | | playa |
+| 2 | 05 | 06 | 07 | nieve y sur |
+| 3 | 08 | 09 | | París |
+| 4 | 10 | 11 | 12 | el perro |
+| 5 | 13 | 14 | 15 | viajes |
+| 6 | 16 | 17 | | noches |
+| 7 | 18 | 19 | 20 | salidas |
+| 8 | 21 | 22 | 23 | lagos y el anillo |
 
-También son de relleno `og-image.jpg` (1200×630, preview al compartir el link), `favicon.png` (512×512) y `apple-touch-icon.png` (180×180).
+`og-image.jpg` (1200×630, la vista previa al compartir el link) sale de la foto de portada. Siguen de relleno `favicon.png` (512×512) y `apple-touch-icon.png` (180×180).
 
 ## Secciones
 Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (dos alias, pesos y dólares) · Fotos
@@ -67,7 +67,8 @@ Vercel, sitio estático sin build. Importar el repo de GitHub como proyecto nuev
 
 ## Pendientes
 - [ ] Completar todos los `{{PLACEHOLDER}}` (ver arriba)
-- [ ] Reemplazar las fotos de relleno, `og-image.jpg`, `favicon.png` y `apple-touch-icon.png`
-- [ ] Describir los `alt` de las fotos (español e inglés)
+- [x] Reemplazar las fotos de relleno y `og-image.jpg`
+- [ ] Reemplazar `favicon.png` y `apple-touch-icon.png`
+- [x] Describir los `alt` de las fotos (español e inglés)
 - [ ] Crear la planilla + Apps Script y pegar la URL en `SHEET_URL`
-- [ ] Crear el proyecto en Vercel y conectarlo al repo
+- [x] Crear el proyecto en Vercel y conectarlo al repo
