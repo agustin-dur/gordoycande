@@ -37,7 +37,7 @@ A small script in `<head>` sets `LANG` and hides `main` (`html.pre-i18n`) so Eng
 
 One form per person — guests with a +1 are asked to have them submit their own form. On submit, the script picks a backend:
 
-- `SHEET_URL` (top of the inline script) — if non-empty, POSTs JSON `{nombre, telefono, asistencia, dieta, cancion, mensaje}` to a Google Apps Script (code and install steps in `apps-script.gs`), deployed from the couple's "Sorio" spreadsheet: it appends to the `CONFIRMADOS` tab, marks the guest in "Invitados Gordo" / "Invitados Cande" and emails both of them. The request uses `mode:'no-cors'`, so the page cannot see errors from the script: after any change to `apps-script.gs`, redeploy a new version (same URL) and send a test RSVP.
+- `SHEET_URL` (top of the inline script) — if non-empty, POSTs JSON `{nombre, telefono, asistencia, dieta, cancion, mensaje}` to a Google Apps Script (code and install steps in `apps-script.gs`), deployed from the couple's "Sorio" spreadsheet: it appends to the `CONFIRMADOS` tab, marks the guest in every tab whose name starts with "Invitados" (Invitados Gordo, Invitados Cande, Invitados Papás — only the main Nombre/Apellido table of each, and each guest must be in exactly one list) and emails both of them. `prepararListas` creates the missing tabs; `remarcarTodo` re-matches every past confirmation after the lists change. The request uses `mode:'no-cors'`, so the page cannot see errors from the script: after any change to `apps-script.gs`, redeploy a new version (same URL) and send a test RSVP.
 - Fallback: formsubmit.co, emailing `{{EMAIL}}`.
 
 ## Known pending work (from README)

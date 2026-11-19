@@ -50,6 +50,7 @@ Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (d
 ## RSVP
 - Un form por persona (los +1 completan el suyo)
 - Cada confirmación se escribe como una fila en una planilla de Google, vía el Apps Script publicado como web app. La URL va en `SHEET_URL`, arriba del script de `index.html` (ya cargada)
+- Además marca a la persona (Confirmado / Rechazado) en las listas de invitados: todas las pestañas cuyo nombre empieza con "Invitados" (Gordo, Cande y Papás). Cada persona tiene que estar en una sola lista, en la tabla principal (columnas Nombre y Apellido). Si se agrega gente después, ejecutar `remarcarTodo` en Apps Script para volver a cruzar las confirmaciones viejas
 - El código del Apps Script está en `apps-script.gs`, con los pasos de instalación y deploy en su comentario de cabecera. Ojo: al editarlo hay que crear una **nueva versión** de la implementación, si no la URL `/exec` sigue ejecutando el código viejo
 - El envío por mail vía formsubmit.co queda como fallback: sólo corre si `SHEET_URL` está vacía. Requiere completar `{{EMAIL}}` y confirmar la dirección la primera vez que formsubmit manda un mail
 
