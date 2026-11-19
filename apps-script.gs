@@ -7,7 +7,7 @@
  * Qué hace cada confirmación:
  *  1. Agrega una fila en la pestaña CONFIRMADOS (si no existe, la crea).
  *  2. Busca a la persona en las listas (todas las pestañas que empiezan con "Invitados":
- *     Invitados Gordo, Invitados Cande, Invitados Papás…) y, si la encuentra,
+ *     Invitados Gordo, Invitados Cande, Invitados Papás Durlach, Invitados Papás Posse…) y, si la encuentra,
  *     escribe Confirmado / Rechazado en la columna "Confirmación" y pinta la fila
  *     (amarillo claro = viene, rojo claro = no viene).
  *  3. Anota en la columna "En la lista" de CONFIRMADOS dónde la marcó, o que no la
@@ -16,8 +16,9 @@
  * Cómo instalarlo (una sola vez):
  *  1. En la planilla del casamiento: Extensiones → Apps Script. Borrar lo que haya y pegar este archivo. Guardar.
  *  2. Elegir la función "prepararListas" y Ejecutar. Autorizar (aparece "Google no verificó esta app" →
- *     Configuración avanzada → Ir al proyecto → Permitir). Crea las pestañas CONFIRMADOS e
- *     "Invitados Papás" (si no existen) y la columna "Confirmación" en todas las listas de invitados.
+ *     Configuración avanzada → Ir al proyecto → Permitir). Crea las pestañas CONFIRMADOS,
+ *     "Invitados Papás Durlach" e "Invitados Papás Posse" (si no existen) y la columna "Confirmación"
+ *     en todas las listas de invitados.
  *  3. Implementar → Nueva implementación → tipo "Aplicación web".
  *       - Ejecutar como: Yo
  *       - Quién tiene acceso: Cualquier usuario   <-- importante, NO "cualquier usuario con cuenta de Google"
@@ -37,14 +38,15 @@ var PESTANA = 'CONFIRMADOS';
 var ENCABEZADOS = ['Fecha', 'Nombre', 'Teléfono', 'Asistencia', 'Restricciones', 'Canción', 'Mensaje', 'En la lista'];
 
 // Listas de invitados donde se marca a cada persona: TODAS las pestañas cuyo nombre empieza
-// con "Invitados" (hoy: Invitados Gordo, Invitados Cande e Invitados Papás; "CIVIL Invitados" no).
+// con "Invitados" (Invitados Gordo, Invitados Cande, Invitados Papás Durlach, Invitados Papás Posse;
+// "CIVIL Invitados" no). Se pueden renombrar o sumar listas mientras el nombre empiece con "Invitados".
 // En la fila 1 tienen que tener las columnas "Nombre" y "Apellido"; la columna "Confirmación"
 // se agrega sola. Cada persona tiene que estar en UNA sola lista: si aparece en dos, no se marca.
 // Solo se busca en la tabla principal (columnas Nombre/Apellido de la fila 1), no en tablas al costado.
 var PREFIJO_LISTAS = 'Invitados';
-// Pestaña para los invitados de los papás: prepararListas la crea si no existe.
-var HOJA_PAPAS = 'Invitados Papás';
-var ENCABEZADOS_PAPAS = ['Nombre', 'Apellido', 'De parte de', 'Confirmación'];
+// Pestañas para los invitados de los papás: prepararListas las crea si no existen.
+var HOJAS_PAPAS = ['Invitados Papás Durlach', 'Invitados Papás Posse'];
+var ENCABEZADOS_PAPAS = ['Nombre', 'Apellido', 'Tipo', 'Confirmación'];
 var COLUMNA_ESTADO = 'Confirmación';
 var COLOR_CONFIRMADO = '#fff2cc'; // amarillo claro
 var COLOR_RECHAZADO = '#f4cccc';  // rojo claro
@@ -224,12 +226,13 @@ function donde(c) {
 function prepararListas() {
   var libro = SpreadsheetApp.getActive();
   hojaConfirmados(libro);
-  if (!libro.getSheetByName(HOJA_PAPAS)) {
-    var papas = libro.insertSheet(HOJA_PAPAS);
-    papas.appendRow(ENCABEZADOS_PAPAS);
-    papas.getRange(1, 1, 1, ENCABEZADOS_PAPAS.length).setFontWeight('bold');
-    papas.setFrozenRows(1);
-  }
+  HOJAS_PAPAS.forEach(function (nombre) {
+    if (libro.getSheetByName(nombre)) return;
+    var hoja = libro.insertSheet(nombre);
+    hoja.appendRow(ENCABEZADOS_PAPAS);
+    hoja.getRange(1, 1, 1, ENCABEZADOS_PAPAS.length).setFontWeight('bold');
+    hoja.setFrozenRows(1);
+  });
   listas(libro).forEach(function (hoja) { tabla(hoja); });
 }
 
