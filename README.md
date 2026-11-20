@@ -57,6 +57,8 @@ Cuenta regresiva · Agenda con mapas · RSVP (un form por persona) · Regalos (d
 ## Deploy
 Vercel, sitio estático sin build. Importar el repo de GitHub como proyecto nuevo en Vercel; después, push a `main` deploya automáticamente. Preview local: `python3 -m http.server 4173`.
 
+Los cambios se prueban primero en la rama `borrador` (vista previa: https://gordoycande-git-borrador-agustins-projects-9c776f73.vercel.app, pide iniciar sesión en Vercel) y, cuando están aprobados, se pasan a `main` para publicarlos en https://gordoycande.vercel.app.
+
 ## Pendientes
 - [x] Completar todos los `{{PLACEHOLDER}}` (ver arriba)
 - [x] Reemplazar las fotos de relleno y `og-image.jpg`
